@@ -95,8 +95,6 @@ class AutotoolsPlugin(snapcraft.BasePlugin):
         super().build()
         if self.options.build_subdir is not None:
             self.builddir = os.path.join(self.builddir, self.options.build_subdir)
-            print("I am here")
-            print(self.builddir)
         if not os.path.exists(os.path.join(self.builddir, "configure")):
             autogen_path = os.path.join(self.builddir, "autogen.sh")
             if os.path.exists(autogen_path):
