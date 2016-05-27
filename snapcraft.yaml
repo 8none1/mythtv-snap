@@ -8,16 +8,27 @@ apps:
         command: mythfrontend
         plugs: [no-security]
 
+plugs:
+    no-security:
+        interface: old-security
+        security-template: unconfined
+
 parts:
     mythtv-frontend:
         plugin: autotools
-#        configflags: []
+        #build-subdir: mythtv
+        configflags: [--compile-type=release]
         source: https://github.com/MythTV/mythtv.git
         source-type: git
+        source-subdir: mythtv
         build-packages:  #  Starting with all the build deps and I will trim it down once it's building
             -   ccache
             -   make
             -   cmake
+            -   autotools-dev
+            -   autoconf
+            -   automake
+            -   build-essential
             -   dh-systemd
             -   fftw-dev
             -   fftw2
