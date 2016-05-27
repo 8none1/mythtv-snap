@@ -16,7 +16,6 @@ plugs:
 parts:
     mythtv-frontend:
         plugin: autotools
-        #build-subdir: mythtv
         configflags: [--compile-type=release]
         source: https://github.com/MythTV/mythtv.git
         source-type: git
